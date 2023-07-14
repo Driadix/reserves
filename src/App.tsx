@@ -20,7 +20,6 @@ function App() {
   // }, [])
 
   React.useEffect(() => {
-    console.log('here')
     axios.get(BASE_URL).then(res => {
       const newData = res.data;
       setReservesData(newData.reservesData);

@@ -4,7 +4,7 @@ import { DataTable } from '../ui/DataTable'
 import { columns } from './columns'
 import { MovesDialog } from '../MovesDialog';
 
-const Moves: React.FC = ({data}) => {
+const Moves: React.FC<any> = ({data}:any) => {
 
   return data.length>0 ? (
     <div className="container mx-auto py-10">

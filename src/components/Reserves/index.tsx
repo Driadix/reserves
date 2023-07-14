@@ -4,7 +4,7 @@ import { DataTable } from '../ui/DataTable'
 import { columns } from './columns'
 import { ReservesDialog } from '../ReservesDialog'
 
-const Reserves: React.FC = ({setSubmits ,data = []}) => {
+const Reserves: React.FC<any> = ({setSubmits ,data = []}:any) => {
 
   return data.length>0 ? (
   <div className="container mx-auto py-10">
