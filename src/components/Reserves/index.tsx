@@ -4,14 +4,14 @@ import { DataTable } from '../ui/DataTable'
 import { columns } from './columns'
 import { ReservesDialog } from '../ReservesDialog'
 
-const Reserves: React.FC<any> = ({setSubmits ,data = []}:any) => {
+const Reserves: React.FC<any> = ({data = [], updateData}:any, ) => {
 
   return data.length>0 ? (
   <div className="container mx-auto py-10">
     <div className="flex-container">
         <Link to='/moves' className="link">На страницу ДВИЖЕНИЯ</Link>
         <h1 className='title'>Остатки</h1>
-        <ReservesDialog setSubmits={setSubmits}/>
+        <ReservesDialog updateData={updateData} />
       </div>
     <DataTable columns={columns} data={data} />
   </div>
