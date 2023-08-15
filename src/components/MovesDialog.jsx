@@ -101,7 +101,7 @@ export function MovesDialog({ names, updateData }) {
           </div>
         </form>
         <DialogFooter>
-          <Button form="moves" type="submit">{isLoading ? 'Добавление...' : 'Добавить'}</Button>
+          <Button disabled={!nameValue ? true : false} form="moves" type="submit">{isLoading ? 'Добавление...' : 'Добавить'}</Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

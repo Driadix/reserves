@@ -10,6 +10,7 @@ function App() {
   const [reservesData, setReservesData] = React.useState([]);
   const [movesData, setMovesData] = React.useState([]);
   const [names, setNames] = React.useState([]);
+  const [isFetched, setIsFetched] = React.useState(false);
 
   // React.useEffect(() => {
   //   axios.get(BASE_URL).then(res => {
@@ -28,6 +29,7 @@ function App() {
   }
 
   React.useEffect(() => {
+    setIsFetched(false);
     axios.get(BASE_URL).then(res => {
       const newData = res.data;
       const names = newData.reservesData.map((item:any) => item.name);
@@ -36,6 +38,7 @@ function App() {
       const movesData = filterData(newData.movesData)
       setMovesData(movesData)
     })
+    setIsFetched(true);
   }, [])
 
   const updateData = React.useCallback((newData: any) => {
@@ -49,7 +52,7 @@ function App() {
   return (
     <Routes>
       <Route path='*' element={<Reserves data={reservesData} updateData={updateData} />} />
-      <Route path='/moves' element={<Moves names={names} data={movesData} updateData={updateData} />} />
+      <Route path='/moves' element={<Moves isFetched={isFetched} names={names} data={movesData} updateData={updateData} />} />
     </Routes>
   )
 }
